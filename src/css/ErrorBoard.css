@@ -1,0 +1,21 @@
+.error-message {
+    color: #ff0000; /* Червоний колір для помилок */
+    font-size: 8px; /* Збільшений розмір шрифту */
+    font-weight: bold; /* Жирний шрифт */
+    background-color: #ffe6e6; /* Світло-червоний фон */
+    border: 1px solid #ffcccc; /* Світло-червона рамка */
+    padding: 5px; /* Відступи всередині */
+    margin: 10px 0; /* Відступи зверху і знизу */
+    border-radius: 5px; /* Закруглені кути */
+}
+.error-title {
+    color: #c70000; /* Темно-червоний колір для заголовка */
+    font-size: 10px; /* Великий розмір шрифту */
+    font-weight: bold; /* Жирний шрифт */
+    text-transform: uppercase; /* Великі літери */
+    margin-bottom: 20px; /* Відступи зверху і знизу */
+    border-bottom: 2px solid #ffcccc; /* Рамка знизу */
+    padding-bottom: 10px; /* Відступ знизу */
+    background-color: #ffe6e6;
+    text-align: center;
+}

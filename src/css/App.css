@@ -1,0 +1,101 @@
+.container {
+    display: flex;
+    padding: 5vh;
+    height: 90vh;
+    justify-content: center;
+    gap: 1vh;
+}
+.item {
+    font-size: 2vh;
+    position: initial;
+    /*border: 4px solid #b1c4c7;*/
+}
+
+.input-board {
+    order:1;
+    width: 100%;
+    height: 50%;
+    background-color: #6a8d94;
+}
+
+.board {
+    order:2;
+    width: 60%;
+    display:flex;
+    background-color: #3B3936;
+}
+.right-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order:3;
+    width: 20%;
+    background-color: #B19470;
+
+}
+
+.left-board{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    background-color: #B19470;
+}
+
+
+#root {
+    background-color: #302E2B;
+}
+
+.error-board{
+    order:3;
+    width: 100%;
+    height:50%;
+    background-color: #B19470;
+}
+html {
+    background-color: #302E2B;
+}
+
+.custom-btn {
+    margin: 10px;
+    padding: 5px!important; /* Задайте відступи для зміни розміру */
+    font-size: 2vh!important; /* Задайте розмір шрифту */
+}
+
+.highlight {
+    border: 2px solid yellow; /* Жовта рамка для підсвічування */
+    background-color: rgba(255, 255, 0, 0.3); /* Світло-жовтий фон */
+}
+
+.visited {
+    transition: background-color ease-in .2s;
+
+    background: radial-gradient(circle, #ffffff, lightblue) !important;
+    border: 2px solid #b1c4c7;
+
+}
+.controls {
+    /*justify-self: center;*/
+    display: flex;
+    justify-content: center; /* Центрує кнопки горизонтально */
+    position: fixed; /* Фіксує кнопки */
+    top: 85vh; /* Відстань віднизу */
+    left: 50%; /* Центрує кнопки по горизонталі */
+    transform: translateX(-50%); /* Центрує кнопки по горизонталі */
+    gap: 10px; /* Відстань між кнопками */
+    z-index: 1000; /* Високий z-index, щоб кнопки не перекривались */
+}
+
+
+.back-forward {
+    margin: 10px!important;
+    min-width: 10vh!important;
+    padding: 5px!important; /* Задайте відступи для зміни розміру */
+    font-size: 2vh!important; /* Задайте розмір шрифту */
+}
+
+
+.tile {
+    transition: background-color ease-in .2s;
+
+}
