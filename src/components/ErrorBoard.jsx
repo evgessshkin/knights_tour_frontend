@@ -4,8 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const ErrorBoard = ({ message }) => {
     return (
         <div>
-            <div className={"error-title boots"}>Info</div>
-            {message ? <div className="error-message">{message}</div> : null}
+            <div className={"error-title boots"}
+                style={{
+                    fontSize:"15px"
+                }}
+            >Info</div>
+            {message ? <div
+                style={{fontSize:"15px"}}
+                className="error-message">{message}</div> : null}
         </div>
     );
 };

@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../css/App.css'
 function Board(props) {
     const { cols, rows, posX, posY, solution } = props;
-
     const maxBoardSize = 80;
     const cellSize = maxBoardSize / Math.max(cols, rows);
-
     const [currentMove, setCurrentMove] = useState(0);
 
     const nextMove = () => {
@@ -83,9 +81,8 @@ function Board(props) {
                 <button className="btn btn-light back-forward"
                         onClick={() => {
                             for (let i = currentMove; i >= 0; i--)
-                                new Promise(resolve => setTimeout(() => setCurrentMove(i), 150 * Math.abs( i - currentMove)));
+                                new Promise(resolve => setTimeout(() => setCurrentMove(i), 50 * Math.abs( i - currentMove)));
 
-                            console.log("start")
                         }
                         }
                 >&lt;&lt;
@@ -100,7 +97,7 @@ function Board(props) {
                 <button className="btn btn-light back-forward"
                         onClick={async () => {
                             for (let i = currentMove; i < cols * rows; i++) {
-                                await new Promise(resolve => setTimeout(resolve, 100 /* (i - currentMove)*/));
+                                await new Promise(resolve => setTimeout(resolve, 50 /* (i - currentMove)*/));
                                 setCurrentMove(i)
                             }
                         }}

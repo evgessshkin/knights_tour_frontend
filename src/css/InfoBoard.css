@@ -1,6 +1,6 @@
 .text-methods{
     background-color: #FFFFFF;
-    padding: 5px;
+    padding: 2px;
     margin: 10px;
     border-radius: 5%;
     text-align: center;
@@ -9,7 +9,6 @@
 .info-board{
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 10px;
     width: 100%;
 }

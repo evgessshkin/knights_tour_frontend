@@ -16,11 +16,15 @@ function App() {
     const [solutionGA, setSolutionGA] = useState({solution: [], generation: null, population: null});
     const [error, setError] = useState(null);
     const [selectedMethods, setSelectedMethods] = useState({ warnsdorf: false, genetic: false });
+    const [showMethod,setShowMethod] = useState(null)
 
     const handleMethodUpdate = (newSelection) => {
         setSelectedMethods(newSelection);
     };
 
+    const handleShowMethod = (newSelection) => {
+        setShowMethod(newSelection)
+    };
     const handleInputChange = (name, value) => {
         setSolutionW([]);
         setSolutionGA({solution:[],generation:null,population:null});
@@ -61,7 +65,14 @@ function App() {
         } else if (!selectedMethods.warnsdorf && selectedMethods.genetic) {
             return solutionGA.solution;
         } else {
-            return [];
+
+            if(showMethod === "warnsdorf"){
+                return solutionW;
+            }else if(showMethod === "genetic"){
+                return solutionGA.solution;
+            }else{
+                return [];
+            }
         }
     };
 
@@ -84,7 +95,7 @@ function App() {
                 <Board rows={rows} cols={cols} posX={posX} posY={posY} solution={selectedMethod()} />
             </div>
             <div className={'item right-board'}>
-                <InfoBoard handleMethodUpdate={handleMethodUpdate} />
+                <InfoBoard handleMethodUpdate={handleMethodUpdate} handleShowMethod = {handleShowMethod}/>
             </div>
         </div>
     );
