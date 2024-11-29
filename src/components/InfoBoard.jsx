@@ -23,7 +23,6 @@ const InfoBoard = ({ handleMethodUpdate,handleShowMethod }) => {
         handleShowMethod(event.target.id)
     };
 
-    // console.log(show)
 
     return (
         <div className="info-board">

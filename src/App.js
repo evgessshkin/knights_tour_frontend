@@ -6,6 +6,7 @@ import './css/board.scss';
 import Board from "./components/Board";
 import ErrorBoard from "./components/ErrorBoard";
 import { fetchSolution } from './utils/fetchSolution';  // Импортируем функцию
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
     const [rows, setRows] = useState(3);
@@ -14,9 +15,10 @@ function App() {
     const [posY, setPosY] = useState(1);
     const [solutionW, setSolutionW] = useState([]);
     const [solutionGA, setSolutionGA] = useState({solution: [], generation: null, population: null});
-    const [error, setError] = useState(null);
     const [selectedMethods, setSelectedMethods] = useState({ warnsdorf: false, genetic: false });
     const [showMethod,setShowMethod] = useState(null)
+    const [errors,setErrors] = useState([])
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleMethodUpdate = (newSelection) => {
         setSelectedMethods(newSelection);
@@ -28,7 +30,8 @@ function App() {
     const handleInputChange = (name, value) => {
         setSolutionW([]);
         setSolutionGA({solution:[],generation:null,population:null});
-        setError(null);
+        setErrors([]);
+
         switch (name) {
             case "rows":
                 setRows(value);
@@ -50,13 +53,16 @@ function App() {
     const handleSubmit = async () => {
         // Проверяем, находится ли конь на допустимой позиции
         if (posX < 1 || posX > cols || posY < 1 || posY > rows) {
-            setError('The knight is in an invalid position');
+            setErrors(['The knight is in an invalid position']);
             setSolutionW([]);
-            return;
+
+        }else{
+            await fetchSolution(cols, rows, posX, posY,
+                selectedMethods, setSolutionW,
+                setSolutionGA, setErrors, setIsLoading);
+
         }
 
-        // Вызываем функцию для получения решения
-        await fetchSolution(cols, rows, posX, posY, selectedMethods, setSolutionW, setSolutionGA, setError);
     };
 
     const selectedMethod = () => {
@@ -77,27 +83,30 @@ function App() {
     };
 
     return (
-        <div className={'container'}>
-            <div className={'item left-board'}>
-                <div className={'input-board'}>
-                    <InputForm
-                        cols1={cols}
-                        rows1={rows}
-                        onInputChange={handleInputChange}
-                        onSubmit={handleSubmit}  // Передаем handleSubmit сюда
-                    />
+        <>
+            <LoadingScreen isVisible={isLoading} />
+            <div className={'container'}>
+                <div className={'item left-board'}>
+                    <div className={'input-board'}>
+                        <InputForm
+                            cols1={cols}
+                            rows1={rows}
+                            onInputChange={handleInputChange}
+                            onSubmit={handleSubmit}
+                        />
+                    </div>
+                    <div className={'error-board'}>
+                        <ErrorBoard messages={errors} />
+                    </div>
                 </div>
-                <div className={'error-board'}>
-                    <ErrorBoard message={error} />
+                <div className={'item board justify-content-center d-flex'}>
+                    <Board rows={rows} cols={cols} posX={posX} posY={posY} solution={selectedMethod()} />
+                </div>
+                <div className={'item right-board'}>
+                    <InfoBoard handleMethodUpdate={handleMethodUpdate} handleShowMethod = {handleShowMethod}/>
                 </div>
             </div>
-            <div className={'item board justify-content-center d-flex'}>
-                <Board rows={rows} cols={cols} posX={posX} posY={posY} solution={selectedMethod()} />
-            </div>
-            <div className={'item right-board'}>
-                <InfoBoard handleMethodUpdate={handleMethodUpdate} handleShowMethod = {handleShowMethod}/>
-            </div>
-        </div>
+        </>
     );
 }
 

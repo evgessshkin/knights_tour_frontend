@@ -7,14 +7,12 @@ function Board(props) {
     const [currentMove, setCurrentMove] = useState(0);
 
     const nextMove = () => {
-        console.log(currentMove)
         if (currentMove < solution.length - 1) {
             setCurrentMove(currentMove + 1);
         }
     };
 
     const previousMove = () => {
-        console.log(currentMove)
 
         if (currentMove > 0) {
             setCurrentMove(currentMove - 1);
@@ -96,7 +94,7 @@ function Board(props) {
                 </button>
                 <button className="btn btn-light back-forward"
                         onClick={async () => {
-                            for (let i = currentMove; i < cols * rows; i++) {
+                            for (let i = currentMove; i < solution.length; i++) {
                                 await new Promise(resolve => setTimeout(resolve, 50 /* (i - currentMove)*/));
                                 setCurrentMove(i)
                             }
