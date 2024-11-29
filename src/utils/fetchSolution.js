@@ -12,11 +12,14 @@ const fetchData = async (url, setData, setErrors, textMsg) => {
     }
 };
 
-export const fetchSolution = async (cols, rows, posX, posY, selectedMethods, setSolutionW, setSolutionGA, setErrors, setIsLoading) => {
+export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
+                                    setSolutionW, setSolutionGA, setErrors, setIsLoading,
+                                    timeStop) => {
     const { warnsdorf, genetic } = selectedMethods;
 
+    const userTimeLimit = timeStop * 1000;
     const urlW = `http://localhost:8080/solutions/warnsdorf?col=${cols}&row=${rows}&posKnightX=${posX - 1}&posKnightY=${posY - 1}`;
-    const urlG = `http://localhost:8080/solutions/genetic-approach?col=${cols}&row=${rows}&posKnightX=${posX - 1}&posKnightY=${posY - 1}&timeStop=${5}`;
+    const urlG = `http://localhost:8080/solutions/genetic-approach?col=${cols}&row=${rows}&posKnightX=${posX - 1}&posKnightY=${posY - 1}&timeStop=${timeStop}`;
 
     setErrors([])
 
@@ -28,7 +31,7 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods, set
         try {
             setIsLoading(true);
             const startTime = Date.now();
-            const userTimeLimit = 5000;
+            const userTimeLimit = timeStop;
 
             const response = await fetch(urlG);
             if (!response.ok) {
@@ -62,7 +65,7 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods, set
         try {
             setIsLoading(true);
             const startTime = Date.now();
-            const userTimeLimit = 5000;
+
 
             const response = await fetch(urlG);
             if (!response.ok) {

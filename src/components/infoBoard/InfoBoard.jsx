@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/InfoBoard.css';
+import './InfoBoard.css';
 
 const InfoBoard = ({ handleMethodUpdate,handleShowMethod }) => {
     const [isCheckedW, setIsCheckedW] = useState(false);

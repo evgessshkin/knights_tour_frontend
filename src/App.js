@@ -1,24 +1,30 @@
 import React, { useState } from "react";
 import "./css/App.css";
-import InputForm from "./components/InputForm";
-import InfoBoard from "./components/InfoBoard";
+import InputForm from "./components/inputBoard/InputForm";
+import InfoBoard from "./components/infoBoard/InfoBoard";
 import './css/board.scss';
 import Board from "./components/Board";
-import ErrorBoard from "./components/ErrorBoard";
+import ErrorBoard from "./components/errorBoard/ErrorBoard";
 import { fetchSolution } from './utils/fetchSolution';  // Импортируем функцию
-import LoadingScreen from "./components/LoadingScreen";
+import LoadingScreen from "./components/loadingScreen/LoadingScreen";
 
 function App() {
     const [rows, setRows] = useState(3);
     const [cols, setCols] = useState(3);
     const [posX, setPosX] = useState(1);
     const [posY, setPosY] = useState(1);
+    const[timeStop, setTimeStop] = useState(10);
     const [solutionW, setSolutionW] = useState([]);
     const [solutionGA, setSolutionGA] = useState({solution: [], generation: null, population: null});
     const [selectedMethods, setSelectedMethods] = useState({ warnsdorf: false, genetic: false });
     const [showMethod,setShowMethod] = useState(null)
     const [errors,setErrors] = useState([])
     const [isLoading, setIsLoading] = useState(false);
+
+
+
+
+
 
     const handleMethodUpdate = (newSelection) => {
         setSelectedMethods(newSelection);
@@ -29,21 +35,26 @@ function App() {
     };
     const handleInputChange = (name, value) => {
         setSolutionW([]);
-        setSolutionGA({solution:[],generation:null,population:null});
+        setSolutionGA({ solution: [], generation: null, population: null });
         setErrors([]);
 
         switch (name) {
             case "rows":
                 setRows(value);
+                if (posY > value) setPosY(value); // Корректируем posY, если выходит за пределы
                 break;
             case "cols":
                 setCols(value);
+                if (posX > value) setPosX(value); // Корректируем posX, если выходит за пределы
                 break;
             case "posX":
                 setPosX(value);
                 break;
             case "posY":
                 setPosY(value);
+                break;
+            case "timeStop":
+                setTimeStop(value);
                 break;
             default:
                 break;
@@ -58,8 +69,8 @@ function App() {
 
         }else{
             await fetchSolution(cols, rows, posX, posY,
-                selectedMethods, setSolutionW,
-                setSolutionGA, setErrors, setIsLoading);
+                selectedMethods, setSolutionW, setSolutionGA,
+                setErrors, setIsLoading,timeStop);
 
         }
 
@@ -84,13 +95,16 @@ function App() {
 
     return (
         <>
-            <LoadingScreen isVisible={isLoading} />
+            <LoadingScreen isVisible={isLoading} duration={timeStop * 1000} onComplete={setIsLoading} />
             <div className={'container'}>
                 <div className={'item left-board'}>
                     <div className={'input-board'}>
                         <InputForm
                             cols1={cols}
                             rows1={rows}
+                            posX={posX}
+                            posY={posY}
+                            times={timeStop}
                             onInputChange={handleInputChange}
                             onSubmit={handleSubmit}
                         />

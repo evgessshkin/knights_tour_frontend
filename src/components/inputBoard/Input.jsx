@@ -2,27 +2,28 @@ import React, { useState } from 'react';
 
 
 const Input = (props) => {
-    const [value, setValue] = useState(props.min); // Ініціалізуємо зі значенням мінімуму
+    const [value, setValue] = useState(props.min);
 
-    // Функція для обробки скролу
     const handleWheel = (event) => {
-        const delta = event.deltaY > 0 ? -1 : 1; // визначає напрямок скролу
+        let delta = event.deltaY > 0 ? -1 : 1;
+        if(props.step) {
+            delta = event.deltaY > 0 ? -10: 10;
+        }
+
         const newValue = value + delta;
 
-        // Перевірка, чи нове значення в межах
         if (newValue >= props.min && newValue <= props.max) {
             setValue(newValue);
-            props.onValueChange(newValue); // Оновлення значення у батьківському компоненті
+            props.onValueChange(newValue);
         }
     };
 
-    // Функція для обробки введення вручну
     const handleChange = (event) => {
         const newValue = Number(event.target.value);
 
         if (newValue >= props.min && newValue <= props.max) {
             setValue(newValue);
-            props.onValueChange(newValue); // Оновлення значення у батьківському компоненті
+            props.onValueChange(newValue);
         }
     };
 
@@ -35,17 +36,16 @@ const Input = (props) => {
                    borderTopRightRadius:  "0px"
                }}
             >
-
                 {props.text+":"}
             </label>
             <input className="form-control w-auto align-self-center"
                 type="number"
-                value={value}
+                value={props.value ? props.value : value}
                 onChange={handleChange}
                 onWheel={handleWheel}
                 min={props.min}
                 max={props.max}
-                step="1"
+                step={props.step ?? 1}
                 style={{
                     borderBottomLeftRadius: "0px",
                     borderTopLeftRadius:  "0px"

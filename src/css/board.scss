@@ -25,69 +25,7 @@
   background-size: cover;
   position: relative;
 
-
-
-
 }
-//.knight {
-//  width: 100%;
-//  height: 100%;
-//  background-color: red; /* Цвет коня */
-//  border-radius: 50%; /* Круглая форма */
-//}
-
-
-
-
-div#board-container {
-  //max-width: 688px;
-}
-
-#board-container {
-  position: relative; /* Чтобы стрелка корректно отображалась */
-}
-
-
-.arrow-ctnr {
-  // transform: rotate3d(0,90deg,0);
-}
-
-
-.arrow-line-1 {
-  width: calc( 2 *var(--tileSize));
-  height: calc( .14 *var(--tileSize));
-  background-color: red;
-  position: relative;
-  left: calc( 1 *var(--tileSize));
-  top: 0;
-}
-
-.arrow-line-2 {
-  width:  calc( .14 *var(--tileSize));
-  height: calc( .9 *var(--tileSize));
-  left: calc( 1.9 *var(--tileSize));
-  background-color: yellow;
-  position: relative;
-
-  top: 0;
-}
-
-
-.arrow-triange {
-  width: 0px;
-  height: 0px;
-
-  border-top:calc( .2 *var(--tileSize)) solid orange ;
-  border-left:calc( .2 *var(--tileSize)) solid transparent ;
-  border-right:calc( .2 *var(--tileSize)) solid transparent ;
-  border-bottom:calc( .2 *var(--tileSize)) solid transparent;
-
-  position: relative;
-  right: calc( .13 *var(--tileSize));
-  top: calc( .9 *var(--tileSize));
-}
-
-
 
 .move-number {
   font-size: 1.5vh; /* Размер шрифта */
