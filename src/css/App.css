@@ -14,7 +14,7 @@
 .input-board {
     order:1;
     width: 100%;
-    height: 50%;
+    height: 60%;
     background-color: #6a8d94;
 }
 
@@ -49,7 +49,7 @@
 .error-board{
     order:3;
     width: 100%;
-    height:50%;
+    height:40%;
     background-color: #B19470;
 }
 html {
@@ -98,3 +98,4 @@ html {
 .tile {
     transition: background-color ease-in .2s;
 }
+

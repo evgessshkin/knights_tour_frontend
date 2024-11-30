@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './InfoBoard.css';
+import MainInstruction from "../instruction/MainInstruction";
 
 const InfoBoard = ({ handleMethodUpdate,handleShowMethod }) => {
     const [isCheckedW, setIsCheckedW] = useState(false);
@@ -78,7 +79,8 @@ const InfoBoard = ({ handleMethodUpdate,handleShowMethod }) => {
                 </label>
             </div>
             <div className="text-methods">Stats:</div>
-
+            <button className="btn btn-light custom-btn w-75 align-self-center">view statistics</button>
+            {/*<MainInstruction/>*/}
         </div>
     );
 };
