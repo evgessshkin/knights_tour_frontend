@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../css/App.css';
+import '../../App.css';
 
 function Board(props) {
     const { cols, rows, posX, posY, solution } = props;

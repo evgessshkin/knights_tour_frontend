@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import "./css/App.css";
+import "./App.css";
 import InputForm from "./components/inputBoard/InputForm";
 import InfoBoard from "./components/infoBoard/InfoBoard";
-import './css/board.scss';
-import Board from "./components/Board";
+import './components/chessBoard/board.scss';
+import Board from "./components/chessBoard/Board";
 import ErrorBoard from "./components/errorBoard/ErrorBoard";
 import { fetchSolution } from './utils/fetchSolution';  // Импортируем функцию
 import LoadingScreen from "./components/loadingScreen/LoadingScreen";
+
 
 function App() {
     const [rows, setRows] = useState(3);
@@ -20,8 +21,6 @@ function App() {
     const [showMethod,setShowMethod] = useState(null)
     const [errors,setErrors] = useState([])
     const [isLoading, setIsLoading] = useState(false);
-
-
 
 
 
@@ -66,7 +65,7 @@ function App() {
         if (posX < 1 || posX > cols || posY < 1 || posY > rows) {
             setErrors(['The knight is in an invalid position']);
             setSolutionW([]);
-
+            setSolutionGA(undefined)
         }else{
             await fetchSolution(cols, rows, posX, posY,
                 selectedMethods, setSolutionW, setSolutionGA,
@@ -117,7 +116,11 @@ function App() {
                     <Board rows={rows} cols={cols} posX={posX} posY={posY} solution={selectedMethod()} />
                 </div>
                 <div className={'item right-board'}>
-                    <InfoBoard handleMethodUpdate={handleMethodUpdate} handleShowMethod = {handleShowMethod}/>
+                    <InfoBoard handleMethodUpdate={handleMethodUpdate}
+                               handleShowMethod = {handleShowMethod}
+                               solutionGA = {solutionGA}
+                               solutionW = {solutionW}
+                    />
                 </div>
             </div>
         </>

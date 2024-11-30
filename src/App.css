@@ -15,7 +15,7 @@
     order:1;
     width: 100%;
     height: 60%;
-    background-color: #6a8d94;
+    background-color: #79A5A6;
 }
 
 .board {
@@ -30,7 +30,7 @@
     align-items: center;
     order:3;
     width: 20%;
-    background-color: #B19470;
+    background-color: #79A5A6;
 
 }
 
@@ -38,7 +38,7 @@
     display: flex;
     flex-direction: column;
     width: 20%;
-    background-color: #B19470;
+    background-color: #4B655C;
 }
 
 
@@ -50,7 +50,7 @@
     order:3;
     width: 100%;
     height:40%;
-    background-color: #B19470;
+    background-color: #4B655C;
 }
 html {
     background-color: #302E2B;

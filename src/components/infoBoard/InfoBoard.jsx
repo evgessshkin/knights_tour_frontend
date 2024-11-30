@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './InfoBoard.css';
-import MainInstruction from "../instruction/MainInstruction";
+import Instruction from "./instruction/Instruction";
+import Stats from "./stats/Stats";
 
-const InfoBoard = ({ handleMethodUpdate,handleShowMethod }) => {
+const InfoBoard = ({ handleMethodUpdate,handleShowMethod ,solutionGA,solutionW}) => {
     const [isCheckedW, setIsCheckedW] = useState(false);
     const [isCheckedGA, setIsCheckedGA] = useState(false);
-    const [show,setShow] =useState(null)
 
     const handleChangeW = () => {
         const newState = !isCheckedW;
@@ -20,68 +20,71 @@ const InfoBoard = ({ handleMethodUpdate,handleShowMethod }) => {
     };
 
     const handleRadioChange = (event) => {
-        setShow(event.target.id);
         handleShowMethod(event.target.id)
     };
 
 
     return (
-        <div className="info-board">
-            <div className="text-methods">Methods:</div>
-            <div className="form-check">
-                <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    checked={isCheckedW}
-                    onChange={handleChangeW}
-                />
-                <label className="form-check-label" htmlFor="flexCheckDefault">
-                    Warnsdorf's rule
-                </label>
-            </div>
+        <>
 
-            <div className="form-check">
-                <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    checked={isCheckedGA}
-                    onChange={handleChangeGA}
-                />
-                <label className="form-check-label" htmlFor="flexCheckDefault">
-                    Genetic approach
-                </label>
-            </div>
+            <div className="info-board">
+                <div className="text-methods">Instructions:</div>
+                <Instruction/>
+                <div className="text-methods">Methods:</div>
+                <div className="form-check">
+                    <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value=""
+                        checked={isCheckedW}
+                        onChange={handleChangeW}
+                    />
+                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                        Warnsdorf's rule
+                    </label>
+                </div>
+
+                <div className="form-check">
+                    <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value=""
+                        checked={isCheckedGA}
+                        onChange={handleChangeGA}
+                    />
+                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                        Genetic approach
+                    </label>
+                </div>
 
 
-            <div className="text-methods">Show approach:</div>
-            <div className="form-check">
-                <input className="form-check-input"
-                       type="radio"
-                       name="flexRadioDefault"
-                       id="warnsdorf"
-                       onChange={handleRadioChange}
-                />
-                <label className="form-check-label">
-                    Warnsdorf's rule
-                </label>
+                <div className="text-methods">Show approach:</div>
+                <div className="form-check">
+                    <input className="form-check-input"
+                           type="radio"
+                           name="flexRadioDefault"
+                           id="warnsdorf"
+                           onChange={handleRadioChange}
+                    />
+                    <label className="form-check-label">
+                        Warnsdorf's rule
+                    </label>
+                </div>
+                <div className="form-check">
+                    <input className="form-check-input"
+                           type="radio"
+                           name="flexRadioDefault"
+                           id="genetic"
+                           onChange={handleRadioChange}
+                    />
+                    <label className="form-check-label">
+                        Genetic approach
+                    </label>
+                </div>
+                <div className="text-methods">Stats:</div>
+                <Stats solutionGA={solutionGA} solutionW={solutionW}/>
             </div>
-            <div className="form-check">
-                <input className="form-check-input"
-                       type="radio"
-                       name="flexRadioDefault"
-                       id="genetic"
-                       onChange={handleRadioChange}
-                />
-                <label className="form-check-label">
-                    Genetic approach
-                </label>
-            </div>
-            <div className="text-methods">Stats:</div>
-            <button className="btn btn-light custom-btn w-75 align-self-center">view statistics</button>
-            {/*<MainInstruction/>*/}
-        </div>
+        </>
     );
 };
 

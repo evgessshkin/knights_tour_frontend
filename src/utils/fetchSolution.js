@@ -5,6 +5,7 @@ const fetchData = async (url, setData, setErrors, textMsg) => {
             throw new Error();
         }
         const data = await response.json();
+        data.isSolved = true;
         setData(data);
     } catch (error) {
         // Обновляем ошибки через setErrors
@@ -27,6 +28,7 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
     if (warnsdorf && !genetic) {
         let errorMsg = "The solution using Warnsdorf's rule was not found.";
         await fetchData(urlW, setSolutionW, setErrors, errorMsg);
+
     } else if (!warnsdorf && genetic) {
         try {
             setIsLoading(true);
@@ -42,8 +44,10 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
 
             if (cols * rows !== data.solution.length) {
                 setErrors(["The solution using Genetic Approach was not found. The area that was successfully covered."]);
+                data.isSolved = false;
             } else {
                 setErrors([]);
+                data.isSolved = true;
                 setIsLoading(false);
                 return;
             }
@@ -75,12 +79,14 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
             setSolutionGA(data);
 
             if (cols * rows !== data.solution.length) {
+                data.isSolved = false;
                 setErrors((prevErrors) => [
                     ...prevErrors,
                     "The solution using Genetic Approach was not found. The area that was successfully covered."
                 ]);
             } else {
                 setIsLoading(false);
+                data.isSolved = true;
                 return;
             }
 

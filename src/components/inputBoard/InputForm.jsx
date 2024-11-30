@@ -1,7 +1,6 @@
 import Input from "./Input";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../css/App.css'
-import MainInstruction from "../instruction/MainInstruction";
+import '../../App.css'
 
 const InputForm = ({ onInputChange,rows1,cols1,posX,posY,onSubmit}) => {
 
@@ -49,7 +48,6 @@ const InputForm = ({ onInputChange,rows1,cols1,posX,posY,onSubmit}) => {
             />
 
             <button className="btn btn-light custom-btn w-75" onClick={onSubmit}>Submit</button>
-            <MainInstruction/>
         </div>
     );
 };

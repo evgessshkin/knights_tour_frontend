@@ -1,10 +1,10 @@
 import React from "react";
 import { ReactComponent as IconClose } from "./icon-close.svg";
-import "./Instruction.css";
+import "./modalWindow.css";
 import { Transition } from "react-transition-group";
 
 
-export const Instruction = ({ isOpen, onClose, children }) => {
+export const ModalWindow = ({ isOpen, onClose, children }) => {
     const onWrapperClick = (event) => {
         if (event.target.classList.contains("modal-wrapper")) onClose();
     };

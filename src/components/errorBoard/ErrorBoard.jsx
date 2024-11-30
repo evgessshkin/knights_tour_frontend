@@ -10,7 +10,7 @@ const ErrorBoard = ({ messages }) => {
                 className="error-title boots"
                 style={{ fontSize: "15px" }}
             >
-                Info
+                ERROR
             </div>
             {Array.isArray(messages) && messages.length > 0 ? (
                 messages.map((message, index) => (
