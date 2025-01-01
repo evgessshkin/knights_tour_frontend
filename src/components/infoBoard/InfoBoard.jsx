@@ -28,7 +28,7 @@ const InfoBoard = ({ handleMethodUpdate,handleShowMethod ,solutionGA,solutionW})
         <>
 
             <div className="info-board">
-                <div className="text-methods">Instructions:</div>
+                <div className="text-methods">Návod:</div>
                 <Instruction/>
                 <div className="text-methods">Methods:</div>
                 <div className="form-check">
@@ -40,7 +40,7 @@ const InfoBoard = ({ handleMethodUpdate,handleShowMethod ,solutionGA,solutionW})
                         onChange={handleChangeW}
                     />
                     <label className="form-check-label" htmlFor="flexCheckDefault">
-                        Warnsdorf's rule
+                        Warnsdorffovo pravidlo
                     </label>
                 </div>
 
@@ -53,12 +53,12 @@ const InfoBoard = ({ handleMethodUpdate,handleShowMethod ,solutionGA,solutionW})
                         onChange={handleChangeGA}
                     />
                     <label className="form-check-label" htmlFor="flexCheckDefault">
-                        Genetic approach
+                        Genetický prístup
                     </label>
                 </div>
 
 
-                <div className="text-methods">Show approach:</div>
+                <div className="text-methods">Zobraziť prístup:</div>
                 <div className="form-check">
                     <input className="form-check-input"
                            type="radio"
@@ -67,7 +67,7 @@ const InfoBoard = ({ handleMethodUpdate,handleShowMethod ,solutionGA,solutionW})
                            onChange={handleRadioChange}
                     />
                     <label className="form-check-label">
-                        Warnsdorf's rule
+                        Warnsdorffovo pravidlo
                     </label>
                 </div>
                 <div className="form-check">
@@ -78,10 +78,10 @@ const InfoBoard = ({ handleMethodUpdate,handleShowMethod ,solutionGA,solutionW})
                            onChange={handleRadioChange}
                     />
                     <label className="form-check-label">
-                        Genetic approach
+                        Genetický prístup
                     </label>
                 </div>
-                <div className="text-methods">Stats:</div>
+                <div className="text-methods">Štatistiky:</div>
                 <Stats solutionGA={solutionGA} solutionW={solutionW}/>
             </div>
         </>

@@ -26,7 +26,7 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
 
 
     if (warnsdorf && !genetic) {
-        let errorMsg = "The solution using Warnsdorf's rule was not found.";
+        let errorMsg = "Riešenie pomocou Warnsdorffovho pravidla nebolo nájdené.";
         await fetchData(urlW, setSolutionW, setErrors, errorMsg);
 
     } else if (!warnsdorf && genetic) {
@@ -37,13 +37,13 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
 
             const response = await fetch(urlG);
             if (!response.ok) {
-                throw new Error("Failed to fetch solution.");
+                throw new Error("Nepodarilo sa načítať riešenie.");
             }
             const data = await response.json();
             setSolutionGA(data);
 
             if (cols * rows !== data.solution.length) {
-                setErrors(["The solution using Genetic Approach was not found. The area that was successfully covered."]);
+                setErrors(["Riešenie pomocou genetického prístupu nebolo nájdené. Oblasť, ktorá bola úspešne pokrytá."]);
                 data.isSolved = false;
             } else {
                 setErrors([]);
@@ -59,11 +59,11 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
                 setIsLoading(false);
             }, remainingTime);
         } catch (error) {
-            setErrors([error.message || "An unknown error occurred."]);
+            setErrors([error.message || "Vyskytla sa neznáma chyba."]);
             setIsLoading(false);
         }
     } else if (warnsdorf && genetic) {
-        let errorMsg = "The solution using Warnsdorf's rule was not found.";
+        let errorMsg = "Riešenie pomocou Warnsdorffovho pravidla nebolo nájdené.";
         await fetchData(urlW, setSolutionW, setErrors, errorMsg);
 
         try {
@@ -73,7 +73,7 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
 
             const response = await fetch(urlG);
             if (!response.ok) {
-                throw new Error("Failed to fetch solution.");
+                throw new Error("Nepodarilo sa načítať riešenie.");
             }
             const data = await response.json();
             setSolutionGA(data);
@@ -82,7 +82,7 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
                 data.isSolved = false;
                 setErrors((prevErrors) => [
                     ...prevErrors,
-                    "The solution using Genetic Approach was not found. The area that was successfully covered."
+                    "Riešenie pomocou genetického prístupu nebolo nájdené. Oblasť, ktorá bola úspešne pokrytá."
                 ]);
             } else {
                 setIsLoading(false);
@@ -97,10 +97,10 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
                 setIsLoading(false);
             }, remainingTime);
         } catch (error) {
-            setErrors([error.message || "An unknown error occurred."]);
+            setErrors([error.message || "AVyskytla sa neznáma chyba."]);
             setIsLoading(false);
         }
     } else {
-        setErrors(["The solution method is not chosen"]);
+        setErrors(["Metóda riešenia nie je vybraná."]);
     }
 };

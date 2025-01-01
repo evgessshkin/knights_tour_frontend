@@ -14,40 +14,40 @@ const InputForm = ({ onInputChange,rows1,cols1,posX,posY,onSubmit}) => {
     return (
         <div className="text-center">
             <Input
-                text={"Count of rows"}
+                text={"Počet riadkov"}
                 max={30}
                 min={3}
                 onValueChange={(value) => handleValueChange("rows", value) && handleValueChange("posY", 1)}
             />
             <Input
-                text={"Count of cols"}
+                text={"Počet stĺpcov"}
                 max={30}
                 min={3}
                 onValueChange={(value) => handleValueChange("cols", value) && handleValueChange("posX", 1)}
             />
             <Input
-                text={"Position X"}
+                text={"Pozícia X"}
                 max={cols1}
                 min={1}
                 onValueChange={(value) => handleValueChange("posX", value)}
                 value={posX}
             />
             <Input
-                text={"Position Y"}
+                text={"Pozícia Y"}
                 max={rows1}
                 min={1}
                 onValueChange={(value) => handleValueChange("posY", value)}
                 value={posY}
             />
             <Input
-                text={"Sol. Time(s)"}
+                text={"Čas rieš. (s)"}
                 max={3600}
                 min={10}
                 onValueChange={(value) => handleValueChange("timeStop", value)}
                 step={10}
             />
 
-            <button className="btn btn-light custom-btn w-75" onClick={onSubmit}>Submit</button>
+            <button className="btn btn-light custom-btn w-75" onClick={onSubmit}>Odoslať</button>
         </div>
     );
 };

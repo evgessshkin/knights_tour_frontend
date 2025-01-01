@@ -14,13 +14,13 @@ export default function Stats({ solutionGA, solutionW }) {
     const bestGenerationGA = isGAAvailable ? solutionGA.generation : "N/A";
     const populationSizeGA = isGAAvailable ? solutionGA.population : "N/A";
     const totalGenerationsGA = isGAAvailable ? solutionGA.totalGenerations : "N/A";
-    const isSolvedGA = isGAAvailable ? (solutionGA.isSolved ? "Yes" : "No") : "N/A";
+    const isSolvedGA = isGAAvailable ? (solutionGA.isSolved ? "Ano" : "Nie") : "N/A";
 
     // Данные для отображения solutionW
     const bestGenerationW = isWAvailable ? 1 : "N/A";
     const populationSizeW = isWAvailable ? 1 : "N/A";
     const totalGenerationsW = isWAvailable ? 1 : "N/A";
-    const isSolvedW = isWAvailable ? (solutionW.isSolved ? "Yes" : "No") : "N/A";
+    const isSolvedW = isWAvailable ? (solutionW.isSolved ? "Ano" : "Nie") : "N/A";
 
     return (
         <div>
@@ -29,7 +29,7 @@ export default function Stats({ solutionGA, solutionW }) {
                     className={`btn ${(isGAAvailable || isWAvailable) ? "btn-success" : "btn-danger"}`}
                     onClick={() => setModalInfoOpen(true)}
                 >
-                    View statistics
+                    Zobraziť štatistiky
                 </button>
             </div>
 
@@ -38,15 +38,15 @@ export default function Stats({ solutionGA, solutionW }) {
                 onClose={() => setModalInfoOpen(false)}
             >
                 <div style={{ padding: "20px" }}>
-                    <h3>Statistics</h3>
+                    <h3>Štatistiky</h3>
 
                     {isGAAvailable && (
                         <div>
-                            <h4>Solution GA</h4>
-                            <p><strong>Was solution found?</strong> {isSolvedGA}</p>
-                            <p><strong>Best record at generation:</strong> {bestGenerationGA}</p>
-                            <p><strong>Population size:</strong> {populationSizeGA}</p>
-                            <p><strong>Total generations:</strong> {totalGenerationsGA}</p>
+                            <h4>Riešenie GA</h4>
+                            <p><strong>Bolo nájdené riešenie?</strong> {isSolvedGA}</p>
+                            <p><strong>Najlepší záznam v generácii:</strong> {bestGenerationGA}</p>
+                            <p><strong>Veľkosť populácie:</strong> {populationSizeGA}</p>
+                            <p><strong>Celkový počet generácií:</strong> {totalGenerationsGA}</p>
                             <Graph
                                 solutionGA={solutionGA}
                                 solutionW={solutionW}
@@ -56,19 +56,20 @@ export default function Stats({ solutionGA, solutionW }) {
 
                     {isWAvailable && (
                         <div>
-                            <h4>Solution W</h4>
-                            <p><strong>Was solution found?</strong> {isSolvedW}</p>
-                            <p><strong>Best record at generation:</strong> {bestGenerationW}</p>
-                            <p><strong>Population size:</strong> {populationSizeW}</p>
-                            <p><strong>Total generations:</strong> {totalGenerationsW}</p>
+                            <h4>Riešenie W</h4>
+                            <p><strong>Bolo nájdené riešenie?</strong> {isSolvedW}</p>
+                            <p><strong>Najlepší záznam v generácii:</strong> {bestGenerationW}</p>
+                            <p><strong>Veľkosť populácie:</strong> {populationSizeW}</p>
+                            <p><strong>Celkový počet generácií:</strong> {totalGenerationsW}</p>
                         </div>
                     )}
 
                     {!isGAAvailable && !isWAvailable && (
-                        <p>No data available for solutions.</p>
+                        <p>Nie sú dostupné žiadne údaje o riešeniach.</p>
                     )}
                 </div>
             </ModalWindow>
+
         </div>
     );
 }
