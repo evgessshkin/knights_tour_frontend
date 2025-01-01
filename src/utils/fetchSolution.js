@@ -19,8 +19,8 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
     const { warnsdorf, genetic } = selectedMethods;
 
     const userTimeLimit = timeStop * 1000;
-    const urlW = `http://localhost:8080/solutions/warnsdorf?col=${cols}&row=${rows}&posKnightX=${posX - 1}&posKnightY=${posY - 1}`;
-    const urlG = `http://localhost:8080/solutions/genetic-approach?col=${cols}&row=${rows}&posKnightX=${posX - 1}&posKnightY=${posY - 1}&timeStop=${timeStop}`;
+    const urlW = `http://3.84.199.25:8080/solutions/warnsdorf?col=${cols}&row=${rows}&posKnightX=${posX - 1}&posKnightY=${posY - 1}`;
+    const urlG = `http://3.84.199.25:8080/solutions/genetic-approach?col=${cols}&row=${rows}&posKnightX=${posX - 1}&posKnightY=${posY - 1}&timeStop=${timeStop}`;
 
     setErrors([])
 
