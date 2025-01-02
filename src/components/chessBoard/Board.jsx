@@ -118,14 +118,14 @@ function Board(props) {
                     onClick={previousMove}
                     disabled={isAnimating || currentMove === 0}
                 >
-                    Back
+                    Späť
                 </button>
                 <button
                     className="btn btn-light back-forward"
                     onClick={nextMove}
                     disabled={isAnimating || currentMove === solution.length - 1}
                 >
-                    Forward
+                    Dopredu
                 </button>
                 <button
                     className="btn btn-light back-forward"
