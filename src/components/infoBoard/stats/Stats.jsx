@@ -13,7 +13,7 @@ export default function Stats({ solutionGA, solutionW }) {
     // Данные для отображения solutionGA
     const bestGenerationGA = isGAAvailable ? solutionGA.generation : "N/A";
     const populationSizeGA = isGAAvailable ? solutionGA.population : "N/A";
-    const totalGenerationsGA = isGAAvailable ? solutionGA.totalGenerations : "N/A";
+    const totalGenerationsGA = isGAAvailable ? solutionGA.generation : "N/A";
     const isSolvedGA = isGAAvailable ? (solutionGA.isSolved ? "Ano" : "Nie") : "N/A";
 
     // Данные для отображения solutionW
