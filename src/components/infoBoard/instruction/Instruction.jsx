@@ -23,18 +23,16 @@ export default function Instruction() {
                 <h1 className="text-center">How to Use the Interface</h1>
 
                 <h2>1. Konfigurácia vstupu</h2>
-                <p>Na ľavom paneli vyplňte nasledujúce polia:</p>
-                <ul>
-                    <li><strong>Počet riadkov:</strong> Špecifikujte počet riadkov na šachovnici.</li>
-                    <li><strong>Počet stĺpcov:</strong> Špecifikujte počet stĺpcov na šachovnici.</li>
-                    <li><strong>Pozícia X:</strong> Nastavte počiatočnú horizontálnu pozíciu jazdca (číslovanie od 1).
-                    </li>
-                    <li><strong>Pozícia Y:</strong> Nastavte počiatočnú vertikálnu pozíciu jazdca (číslovanie od 1).
-                    </li>
-                    <li><strong>Čas riešenia (s): </strong> Zadajte čas v sekundách na riešenie úlohy pomocou genetického prístupu.
-                    </li>
-                </ul>
-                <p>Kliknite na tlačidlo <strong>Odoslať</strong> na použitie konfigurácie.</p>
+                    <strong>Akúkoľvek z veličín môžete meniť pomocou rolovania myšou.</strong>
+                    <p>Na ľavom paneli vyplňte nasledujúce polia:</p>
+                    <ul>
+                        <li><strong>Počet riadkov:</strong> Špecifikujte počet riadkov na šachovnici.</li>
+                        <li><strong>Počet stĺpcov:</strong> Špecifikujte počet stĺpcov na šachovnici.</li>
+                        <li><strong>Pozícia X:</strong> Nastavte počiatočnú horizontálnu pozíciu jazdca (číslovanie od 1).</li>
+                        <li><strong>Pozícia Y:</strong> Nastavte počiatočnú vertikálnu pozíciu jazdca (číslovanie od 1).</li>
+                        <li><strong>Čas riešenia (s): </strong> Zadajte čas v sekundách na riešenie úlohy pomocou genetického prístupu.</li>
+                    </ul>
+                    <p>Kliknite na tlačidlo <strong>Odoslať</strong> na použitie konfigurácie.</p>
 
                 <h2>2. Tlačidlo "Návod"</h2>
                 <p>Kliknite na tlačidlo <strong>Návod</strong> aby ste otvorili podrobný sprievodca používaním rozhrania.</p>
@@ -65,7 +63,7 @@ export default function Instruction() {
                     <h3>Vysvetlenie tlačidla Štatistiky</h3>
 
                     <p>
-                        Tlačidlo <strong>Štatistiky</strong> otvára okno so štatistikami riešení <strong>solutionGA</strong> and <strong>solutionW</strong>. Farba tlačidla odráža dostupnosť dát:
+                        Tlačidlo <strong>Štatistiky</strong> otvára okno so štatistikami riešení <strong>solutionGA</strong> a <strong>solutionW</strong>. Farba tlačidla odráža dostupnosť dát:
                     </p>
 
                     <ul>
