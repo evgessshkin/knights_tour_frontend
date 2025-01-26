@@ -61,9 +61,8 @@ function App() {
     };
 
     const handleSubmit = async () => {
-        // Проверяем, находится ли конь на допустимой позиции
-        if (posX < 1 || posX > cols || posY < 1 || posY > rows) {
-            setErrors(['The knight is in an invalid position']);
+        if((cols===4 &&  rows === 4) || (cols===3 &&  rows === 3)) {
+            setErrors(["Riešenie pre šachovnicu zadaných rozmerov neexistuje."]);
             setSolutionW([]);
             setSolutionGA(undefined)
         }else{
