@@ -29,7 +29,7 @@ const LoadingScreen = ({ isVisible, duration, onComplete }) => {
 
     return (
         <div className="loading-overlay">
-            <div className="loading-message">Solving using the genetic method</div>
+            <div className="loading-message">Riešenie pomocou genetickej metódy</div>
             <div className="loading-bar-container">
                 <div className="loading-bar" style={{ width: `${progress}%` }}></div>
             </div>
