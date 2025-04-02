@@ -19,6 +19,8 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
     const { warnsdorf, genetic } = selectedMethods;
 
     const userTimeLimit = timeStop * 1000;
+    // наместо локал хоста
+    // 54.234.127.160:
     const urlW = `http://54.234.127.160:8080/solutions/warnsdorf?col=${cols}&row=${rows}&posKnightX=${posX - 1}&posKnightY=${posY - 1}`;
     const urlG = `http://54.234.127.160:8080/solutions/genetic-approach?col=${cols}&row=${rows}&posKnightX=${posX - 1}&posKnightY=${posY - 1}&timeStop=${timeStop}`;
 
@@ -82,7 +84,7 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
                 data.isSolved = false;
                 setErrors((prevErrors) => [
                     ...prevErrors,
-                    "Riešenie pomocou genetického prístupu nebolo nájdené. Oblasť, ktorá bola úspešne pokrytá."
+                    "Riešenie pomocou genetického prístupu nebolo nájdené.Na šachovnici je zobrazená oblasť, ktorú sa podarilo pokryť najlepšou cestou koňa z poslednej generácie."
                 ]);
             } else {
                 setIsLoading(false);
@@ -97,7 +99,7 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
                 setIsLoading(false);
             }, remainingTime);
         } catch (error) {
-            setErrors([error.message || "AVyskytla sa neznáma chyba."]);
+            setErrors([error.message || "Vyskytla sa neznáma chyba."]);
             setIsLoading(false);
         }
     } else {

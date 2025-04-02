@@ -30,7 +30,7 @@ const InfoBoard = ({ handleMethodUpdate,handleShowMethod ,solutionGA,solutionW})
             <div className="info-board">
                 <div className="text-methods">Návod:</div>
                 <Instruction/>
-                <div className="text-methods">Methods:</div>
+                <div className="text-methods">Metódy:</div>
                 <div className="form-check">
                     <input
                         className="form-check-input"

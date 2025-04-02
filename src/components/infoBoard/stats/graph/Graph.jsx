@@ -18,9 +18,9 @@ const Graph = ({ solutionGA }) => {
             data={chartData}
             margin={{ top: 20, right: 30, left: 20, bottom: 10 }}
         >
-            <XAxis dataKey="iteration" label={{ value: 'Iterácia', position: 'insideBottom', offset: -10 }} />
+            <XAxis dataKey="iteration" label={{ value: 'Iteracia', position: 'insideBottom', offset: 40 }} />
             <YAxis label={{ value: 'Pokryté bunky', angle: -90, position: 'insideLeft', offset: -10 }} />
-            <Tooltip />
+            <Tooltip/>
             <Legend />
             <CartesianGrid stroke="#ccc" />
             <Line type="monotone" dataKey="coveredCells" stroke="#8884d8" name="Pokryté bunky" />

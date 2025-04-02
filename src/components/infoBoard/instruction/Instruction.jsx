@@ -20,7 +20,7 @@ export default function Instruction() {
                 onClose={() => setModalInfoOpen(false)}
             >
                 <div className="text-lg-start">
-                <h1 className="text-center">How to Use the Interface</h1>
+                <h1 className="text-center">Ako používať rozhranie</h1>
 
                 <h2>1. Konfigurácia vstupu</h2>
                     <strong>Akúkoľvek z veličín môžete meniť pomocou rolovania myšou.</strong>
@@ -47,7 +47,7 @@ export default function Instruction() {
                 <p>Riešenie si môžete zobraziť výberom jednej z možností v sekcii <strong>Zobraziť prístup.</strong>.</p>
 
                 <h2>4. Panel chýb</h2>
-                <p>Panel <strong>Info</strong> umiestnený vľavo dole, zobrazuje:
+                <p>Panel umiestnený vľavo dole, zobrazuje:
                 </p>
                 <ul>
                     <li>Akékoľvek chyby, ktoré nastanú počas validácie vstupov (napr. neplatná pozícia, hodnoty mimo rozsahu atď.).
@@ -63,7 +63,7 @@ export default function Instruction() {
                     <h3>Vysvetlenie tlačidla Štatistiky</h3>
 
                     <p>
-                        Tlačidlo <strong>Štatistiky</strong> otvára okno so štatistikami riešení <strong>solutionGA</strong> a <strong>solutionW</strong>. Farba tlačidla odráža dostupnosť dát:
+                        Tlačidlo <strong>Štatistiky</strong> otvára okno so štatistikami riešení. Farba tlačidla odráža dostupnosť dát:
                     </p>
 
                     <ul>
@@ -75,20 +75,17 @@ export default function Instruction() {
                         <strong>Zobrazené štatistiky:</strong>
                     </p>
 
-                    <h3>Pre solutionGA:</h3>
+                    <h3>Pre riešenie genetickou metódou:</h3>
                     <ul>
-                        <li>Či bolo nájdené riešenie (<strong>isSolved</strong>).</li>
-                        <li>Najlepšia generácia záznamu.</li>
+                        <li>Či bolo nájdené riešenie.</li>
                         <li>Veľkosť populácie.</li>
                         <li>Celkový počet generácií.</li>
-                        <li>Graf zobrazujúci priebeh pokrytia.</li>
+                        <li>Graf.</li>
                     </ul>
 
-                    <h3>Pre solutionW:</h3>
+                    <h3>Pre riešenie pomocou Warnsdorffovho pravidla:</h3>
                     <ul>
-                        <li>Či bolo nájdené riešenie (<strong>isSolved</strong>).</li>
-                        <li>Veľkosť populácie (vždy 1).</li>
-                        <li>Celkový počet generácií (vždy 1).</li>
+                        <li>Či bolo nájdené riešenie.</li>
                     </ul>
 
                     <p>

@@ -38,15 +38,24 @@ export default function Stats({ solutionGA, solutionW }) {
                 onClose={() => setModalInfoOpen(false)}
             >
                 <div style={{ padding: "20px" }}>
-                    <h3>Štatistiky</h3>
+                    <h3 style={{textAlign: "center"}}>Štatistiky</h3>
 
                     {isGAAvailable && (
                         <div>
-                            <h4>Riešenie GA</h4>
+                            <h4 style={{textAlign: "center"}}>Riešenie pomocou genetickej metódy</h4>
                             <p><strong>Bolo nájdené riešenie?</strong> {isSolvedGA}</p>
-                            <p><strong>Najlepší záznam v generácii:</strong> {bestGenerationGA}</p>
+                            {/*<p><strong>Najväčší počet políčok sa podarilo pokryť v generácii číslo:</strong> {bestGenerationGA}</p>*/}
                             <p><strong>Veľkosť populácie:</strong> {populationSizeGA}</p>
-                            <p><strong>Celkový počet generácií:</strong> {totalGenerationsGA}</p>
+                            <p><strong>Počet generácií, ktoré boli zapojené do riešenia
+                                šachovnice:</strong> {totalGenerationsGA}</p>
+                            <p>
+                                Tento graf znázorňuje vývoj priemerného počtu pokrytých buniek v každej generácii
+                                genetického algoritmu.
+                                Každý bod na grafe predstavuje priemerný počet buniek, ktoré sa podarilo pokryť v jednej
+                                generácii.
+                                Každá generácia obsahuje 50 jedincov a výsledky sa zaznamenávajú po každej iterácii.
+                            </p>
+
                             <Graph
                                 solutionGA={solutionGA}
                                 solutionW={solutionW}
@@ -56,11 +65,11 @@ export default function Stats({ solutionGA, solutionW }) {
 
                     {isWAvailable && (
                         <div>
-                            <h4>Riešenie W</h4>
+                            <h4 style={{textAlign: "center"}}>Riešenie pomocou Warnsdorffovho pravidla</h4>
                             <p><strong>Bolo nájdené riešenie?</strong> {isSolvedW}</p>
-                            <p><strong>Najlepší záznam v generácii:</strong> {bestGenerationW}</p>
-                            <p><strong>Veľkosť populácie:</strong> {populationSizeW}</p>
-                            <p><strong>Celkový počet generácií:</strong> {totalGenerationsW}</p>
+                            {/*<p><strong>Najlepší záznam v generácii:</strong> {bestGenerationW}</p>*/}
+                            {/*<p><strong>Veľkosť populácie:</strong> {populationSizeW}</p>*/}
+                            {/*<p><strong>Celkový počet generácií:</strong> {totalGenerationsW}</p>*/}
                         </div>
                     )}
 
