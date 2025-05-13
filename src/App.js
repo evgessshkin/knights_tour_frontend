@@ -61,10 +61,10 @@ function App() {
     };
 
     const handleSubmit = async () => {
-        if((cols===4 &&  rows === 4) || (cols===3 &&  rows === 3)) {
+        if((cols===4 &&  rows === 4) || (cols === 3 &&  rows === 3)) {
             setErrors(["Riešenie pre šachovnicu zadaných rozmerov neexistuje."]);
             setSolutionW([]);
-            setSolutionGA(undefined)
+            setSolutionGA({ solution: [], generation: null, population: null });
         }else{
             await fetchSolution(cols, rows, posX, posY,
                 selectedMethods, setSolutionW, setSolutionGA,

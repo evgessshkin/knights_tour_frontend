@@ -34,10 +34,7 @@ export default function Instruction() {
                     </ul>
                     <p>Kliknite na tlačidlo <strong>Odoslať</strong> na použitie konfigurácie.</p>
 
-                <h2>2. Tlačidlo "Návod"</h2>
-                <p>Kliknite na tlačidlo <strong>Návod</strong> aby ste otvorili podrobný sprievodca používaním rozhrania.</p>
-
-                <h2>3. Panel metód</h2>
+                <h2>2. Panel metód</h2>
                 <p>Na pravom paneli vyberte algoritmus na riešenie jazdcovej cesty:</p>
                 <ul>
                     <li><strong>Warnsdorffovo pravidlo:</strong> Zaškrtnite toto políčko pre použitie heuristiky Warnsdorffovho pravidla.
@@ -46,7 +43,7 @@ export default function Instruction() {
                 </ul>
                 <p>Riešenie si môžete zobraziť výberom jednej z možností v sekcii <strong>Zobraziť prístup.</strong>.</p>
 
-                <h2>4. Panel chýb</h2>
+                <h2>3. Panel chýb</h2>
                 <p>Panel umiestnený vľavo dole, zobrazuje:
                 </p>
                 <ul>
@@ -57,7 +54,7 @@ export default function Instruction() {
                 <p>Ak sa zobrazí chyba, skontrolujte vstupné polia, opravte chyby a odošlite konfiguráciu znova.</p>
 
 
-                <h2>5. Štatistiky</h2>
+                <h2>4. Štatistiky</h2>
                 <p>Sekcia <strong>Štatistiky</strong> zobrazuje informácie o procese riešenia.</p>
                 <div>
                     <h3>Vysvetlenie tlačidla Štatistiky</h3>
@@ -75,7 +72,7 @@ export default function Instruction() {
                         <strong>Zobrazené štatistiky:</strong>
                     </p>
 
-                    <h3>Pre riešenie genetickou metódou:</h3>
+                    <h3>Pre riešenie genetickou metódou zobrazuje:</h3>
                     <ul>
                         <li>Či bolo nájdené riešenie.</li>
                         <li>Veľkosť populácie.</li>
@@ -83,7 +80,7 @@ export default function Instruction() {
                         <li>Graf.</li>
                     </ul>
 
-                    <h3>Pre riešenie pomocou Warnsdorffovho pravidla:</h3>
+                    <h3>Pre riešenie pomocou Warnsdorffovho pravidla zobrazuje:</h3>
                     <ul>
                         <li>Či bolo nájdené riešenie.</li>
                     </ul>
@@ -95,7 +92,7 @@ export default function Instruction() {
 
 
 
-                <h2>6. Navigačné ovládacie prvky</h2>
+                <h2>5. Navigačné ovládacie prvky</h2>
                 <p>Použite navigačné tlačidlá v dolnej časti rozhrania:</p>
                 <ul>
                     <li><strong>&lt;&lt;</strong> - Prejsť na začiatok riešenia.</li>
