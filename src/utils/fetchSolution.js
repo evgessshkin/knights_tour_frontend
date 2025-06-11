@@ -22,7 +22,7 @@ export const fetchSolution = async (cols, rows, posX, posY, selectedMethods,
     // наместо локал хоста
     // 54.234.127.160:
     const urlW = `http://54.234.127.160:8080/solutions/warnsdorf?col=${cols}&row=${rows}&posKnightX=${posX - 1}&posKnightY=${posY - 1}`;
-    const urlG = `http://54.234.127.160:8080/solutions/genetic-approach?col=${cols}&row=${rows}&posKnightX=${posX - 1}&posKnightY=${posY - 1}&timeStop=${timeStop}`;
+    const urlG = `http://54.234.127.160:8080/solutions/genetic-approach?col=${cols}&row=${rows}&posKnightX=${posY - 1}&posKnightY=${posX - 1}&timeStop=${timeStop}`;
 
     setErrors([])
 
